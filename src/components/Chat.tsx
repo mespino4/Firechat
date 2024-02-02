@@ -63,23 +63,25 @@ export const Chat = ({ room }: any) => {
 
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     if (!currentUser) return;
-
+  
     if (!newMessage) return;
-
+  
     // Add the new message to Firestore
     await addDoc(messagesRef, {
       text: newMessage,
       createdAt: serverTimestamp(),
-      user: currentUser?.displayName || "Anonymous",
+      user: currentUser.displayName || "Anonymous",
       room,
-    }).then(() => {setNewMessage("");})
-      .catch((error) => {
-        console.error("Error adding message:", error);
-        setError("Error sending message. Please try again.");
-      });
+    }).then(() => {
+      setNewMessage("");
+    }).catch((error) => {
+      console.error("Error adding message:", error);
+      setError("Error sending message. Please try again.");
+    });
   };
+  
 
   return (
     <div className="chat-container">

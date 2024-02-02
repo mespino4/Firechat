@@ -1,4 +1,3 @@
-// App.tsx
 import { useState } from 'react';
 import { Auth } from './components/Auth';
 import { Chat } from './components/Chat';
@@ -22,7 +21,12 @@ export const AppWrapper = ({ children, isAuth, setIsAuth, setIsInChat }: any) =>
   return (
     <div className="app">
       <div className="app-header">
-        <div className="app-name">Firechat 🔥</div>
+        <div className="app-name">
+          Firechat
+          <img src={'./flame.png'} alt="Fire" 
+            style={{ height: '30px' }}
+            className="flame-image" />
+        </div>
         {isAuth && (
           <div className="sign-out">
             <button onClick={signUserOut}>Sign Out</button>
@@ -51,6 +55,8 @@ const App = () => {
     );
   }
 
+  const isEnterButtonDisabled = room.trim() === '';
+
   return (
     <AppWrapper isAuth={isAuth} setIsAuth={setIsAuth} setIsInChat={setIsInChat}>
       {!isInChat ? (
@@ -61,7 +67,9 @@ const App = () => {
             placeholder="Enter a chatroom name"
             onChange={(e) => setRoom(e.target.value)}
           />
-          <button className='enter-btn' onClick={() => setIsInChat(true)}>Enter</button>
+          <button className='enter-btn' onClick={() => setIsInChat(true)} disabled={isEnterButtonDisabled}>
+            Enter
+          </button>
         </div>
       ) : (
         <Chat room={room} />

@@ -1,6 +1,6 @@
-import { auth, provider } from "../firebase-config.ts";
-import { signInWithPopup } from "firebase/auth";
-
+import { signInWithPopup, signInAnonymously } from "firebase/auth";
+import { auth, provider } from "../firebase-config";
+import { updateProfile } from "firebase/auth";
 import "../styles/Auth.css";
 
 import Cookies from "universal-cookie";
@@ -8,10 +8,31 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export const Auth = ({ setIsAuth }: any) => {
-    const signInWithGoogle = async () => {
+  const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       cookies.set("auth-token", result.user.refreshToken);
+      setIsAuth(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const signInAsGuest = async () => {
+    try {
+      // Sign in anonymously
+      const result = await signInAnonymously(auth);
+
+      // Set a screen name for the user
+      const screenName = "Guest-" + Math.floor(Math.random() * 1000);
+
+      // Set the display name for the anonymous user
+      await updateProfile(result.user, { displayName: screenName });
+
+      // Store the guests user's refresh token in cookies
+      cookies.set("auth-token", result.user.refreshToken);
+
+      // Set isAuthenticated to true
       setIsAuth(true);
     } catch (err) {
       console.error(err);
@@ -25,7 +46,9 @@ export const Auth = ({ setIsAuth }: any) => {
         Sign In With Google
       </button>
 
-      <button className="guest-btn">Sign In as a Guest</button>
+      <button onClick={signInAsGuest} className="guest-btn">
+        Sign In as a Guest
+      </button>
     </div>
   );
 };

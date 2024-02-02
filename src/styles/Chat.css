@@ -55,7 +55,7 @@
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center the items vertically */
+  align-items: center;
   background-color: #dbdbdb;
 }
 

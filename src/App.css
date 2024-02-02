@@ -1,5 +1,4 @@
 /* app.css */
-
 .app {
   display: flex;
   justify-content: center;
@@ -40,9 +39,15 @@
 }
 
 .app-name {
+  display: flex;
+  align-items: center;
   font-weight: bold;
   color: #fff;
   margin: 5px;
+}
+
+.app-name img {
+  margin-left: 10px;
 }
 
 .sign-out {
@@ -71,3 +76,8 @@
   cursor: pointer;
 }
 
+.enter-btn:disabled {
+  background-color: #a4a1a1;
+  cursor: not-allowed;
+  color: #fff;
+}
