@@ -1,7 +1,6 @@
 
 .chat-container {
   width: 400px;
-  margin: 20px auto;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -9,11 +8,12 @@
 }
 
 .chat-header {
-  background: linear-gradient(to right, #f1c40f, #e67e22, #e74c3c);
-  color: #fff;
-  font-size: 10px;
+  width: 100%;
+  color: #000000;
+  font-size: 12px;
   margin: 0;
-  padding: 1px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #bdc3c7;
 }
 
 .chat-messages {

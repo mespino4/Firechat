@@ -1,13 +1,40 @@
-import { useState } from 'react'
-import './App.css'
-import { Auth } from './components/Auth'
-import { Chat } from './components/Chat'
-import { AppWrapper } from './components/AppWrapper'
-import Cookies from 'universal-cookie'
+// App.tsx
+import { useState } from 'react';
+import { Auth } from './components/Auth';
+import { Chat } from './components/Chat';
+import { signOut } from "firebase/auth";
+import { auth } from './firebase-config';
+
+import './App.css';
+
+import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-function App() {
+export const AppWrapper = ({ children, isAuth, setIsAuth, setIsInChat }: any) => {
+  const signUserOut = async () => {
+    await signOut(auth);
+    cookies.remove("auth-token");
+    setIsAuth(false);
+    setIsInChat(false);
+  };
+
+  return (
+    <div className="app">
+      <div className="app-header">
+        <div className="app-name">Firechat 🔥</div>
+        {isAuth && (
+          <div className="sign-out">
+            <button onClick={signUserOut}>Sign Out</button>
+          </div>
+        )}
+      </div>
+      <div className="app">{children}</div>
+    </div>
+  );
+};
+
+const App = () => {
   const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
   const [isInChat, setIsInChat] = useState(false);
   const [room, setRoom] = useState("");
@@ -27,16 +54,14 @@ function App() {
   return (
     <AppWrapper isAuth={isAuth} setIsAuth={setIsAuth} setIsInChat={setIsInChat}>
       {!isInChat ? (
-        <div className="room">
-          <label> Type room name: </label>
-          <input onChange={(e) => setRoom(e.target.value)} />
-          <button
-            onClick={() => {
-              setIsInChat(true);
-            }}
-          >
-            Enter Chat
-          </button>
+        <div className="app">
+          <h2>Enter Chatroom</h2>
+          <input
+            type="text"
+            placeholder="Enter a chatroom name"
+            onChange={(e) => setRoom(e.target.value)}
+          />
+          <button className='enter-btn' onClick={() => setIsInChat(true)}>Enter</button>
         </div>
       ) : (
         <Chat room={room} />
@@ -45,4 +70,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

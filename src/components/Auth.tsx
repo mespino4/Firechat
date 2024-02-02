@@ -1,6 +1,8 @@
 import { auth, provider } from "../firebase-config.ts";
 import { signInWithPopup } from "firebase/auth";
+
 import "../styles/Auth.css";
+
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
@@ -18,8 +20,12 @@ export const Auth = ({ setIsAuth }: any) => {
 
   return (
     <div className="auth">
-      <p>Sign In With Google To Continue</p>
-      <button onClick={signInWithGoogle}>Sign In With Google</button>
+      <h2>Sign In</h2>
+      <button onClick={signInWithGoogle} className="google-btn">
+        Sign In With Google
+      </button>
+
+      <button className="guest-btn">Sign In as a Guest</button>
     </div>
   );
 };
