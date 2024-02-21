@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+![Smolink Logo](../react-client/public/smolink.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Firechat: A chat application
+Chatt application
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
 
-## Expanding the ESLint configuration
+## Features
+- Chat with other users
+- Simple interface
+- Google Authentication
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
+- **Backend**: Google Firebase & Firestore
+- **Frontend**: React
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
+To install and run the Smolink server (Flask) locally, follow these steps:
+1. Clone this repository:
+    ```
+    git clone https://github.com/mespino4/smolink.git
+    ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. Install dependencies:
+    ```
+    npm install
+    ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. Run the React development server:
+    ```
+    npm run dev
+    ```
+
+4. Access Firechat in your web browser, usually at `http://localhost:5173/`.
+
+## Usage
+1. Open Firechat in your web browser.
+2. Sign in either with your Google account or as a guest
+3. Enter a chatroom name you want join
+4. Send a message
+
+## Screenshots
+
+![Login](images/ss1.png)
+*Login page*
+
+![Shorten URL](images/ss3.png)
+*Shorten a URL with Smolink*
+
+## Demo
+
+![Demo](smolink_demo.gif)
+*A demonstration of how Smolink works.*
