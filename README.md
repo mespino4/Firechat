@@ -10,6 +10,7 @@ Chatroom application
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
+- [Demo](#demo)
 
 ## Features
 - Chat with other users
@@ -48,15 +49,19 @@ To install and run the Smolink server (Flask) locally, follow these steps:
 ## Screenshots
 
 ![Login](images/ss1.png)
+
 *Login page*
 
 ![Enter Chatroom name](images/ss2.png)
+
 *Enter Chatroom name*
 
+
 ![Send a message](images/ss3.png)
+
 *Send a message*
 
 ## Demo
-
 ![Demo](images/firechatDemo.gif)
+
 *A demonstration of how Firechat works.*
