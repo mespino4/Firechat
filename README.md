@@ -50,10 +50,13 @@ To install and run the Smolink server (Flask) locally, follow these steps:
 ![Login](images/ss1.png)
 *Login page*
 
-![Shorten URL](images/ss3.png)
-*Shorten a URL with Smolink*
+![Enter Chatroom name](images/ss2.png)
+*Enter Chatroom name*
+
+![Send a message](images/ss3.png)
+*Send a message*
 
 ## Demo
 
-![Demo](smolink_demo.gif)
-*A demonstration of how Smolink works.*
+![Demo](images/firechatDemo.gif)
+*A demonstration of how Firechat works.*
