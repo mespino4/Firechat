@@ -1,7 +1,7 @@
-![Smolink Logo](../react-client/public/smolink.png)
+![Firechat Logo](images/firechatlogo.png)
 
-# Firechat: A chat application
-Chatt application
+# Firechat: A chatroom application
+Chatroom application
 
 ## Table of Contents
 
