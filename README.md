@@ -3,6 +3,9 @@
 # Firechat: A chatroom application
 Chatroom application
 
+## Live Demo
+https://firechat-956f1.web.app
+
 ## Table of Contents
 
 - [Features](#features)
